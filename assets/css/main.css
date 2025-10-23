@@ -1,0 +1,1660 @@
+/**
+* Template Name: Tour
+* Template URL: https://bootstrapmade.com/tour-bootstrap-travel-website-template/
+* Updated: Jul 01 2025 with Bootstrap v5.3.7
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+@charset "UTF-8";
+
+/*--------------------------------------------------------------
+# Font & Color Variables
+# Help: https://bootstrapmade.com/color-system/
+--------------------------------------------------------------*/
+/* Fonts */
+:root {
+  --default-font: "Satoshi", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --heading-font: "Satoshi", sans-serif;
+  --nav-font: "Satoshi", sans-serif;
+}
+
+/* Global Colors */
+:root { 
+  --background-color: #FFFFFF;        /* page background */
+  --default-color: #2B2B2B;           /* body text */
+  --heading-color: #14212B;           /* headings: deep slate/navy (yours) */
+  /*--accent-color:  #E76F6A;           /* primary accent - muted coral */
+  --accent-color:  #c95374;           /* primary accent - muted coral */
+  --accent-2-color: #7AA6A1;          /* secondary accent - sea/soft teal */
+  --accent-3-color: #C47FA0;          /* secondary accent - sea/soft teal */
+  --surface-color:  #F8F8F9;          /* cards / surfaces - clean, near-white */
+  --contrast-color: #FFFFFF;          /* high contrast (text on accent) */
+  --muted-color:    #8E8E8E;          /* subtle text / captions */
+  --sand-color:     #F1E9DB;          /* warm sand for very subtle surfaces */
+  --dark-navy:      #112B44;          /* deep navy, close to black */
+}
+
+/* Nav Menu Colors */
+:root {
+  --nav-color: rgba(11, 22, 32, 0.7);    /* translucent dark navy for over-video nav */
+  --nav-hover-color: #14212B;            /* heading color navy for hover */
+  --nav-mobile-background-color: #FFFFFF;
+  --nav-dropdown-background-color: #FFFFFF;
+  --nav-dropdown-color: #2B2B2B;
+  --nav-dropdown-hover-color: var(--accent-color); /* coral highlight for dropdown hover */
+}
+
+/* Color Presets */
+.light-background {
+  --background-color: #FFFFFF;
+  --surface-color: #F8F8F9;
+}
+
+.subtle-background {
+  --background-color: color-mix(in srgb, #000000, transparent 98%);
+  --surface-color: #F8F8F9;
+}
+
+.next-background {
+  --background-color: #FFFFFF;  /* deeper navy background for footer/hero overlays */
+  --default-color: #0F1A20;              /* light text on dark backgrounds */
+  --heading-color: #0F1A20;              /* coral accent headings on dark */
+  --surface-color: #ffffff;
+  --contrast-color: #FFFFFF;
+  --cyan-color: linear-gradient(110deg, #00b0f6 0%, #92d9ff 100%); 
+  --violet-color: linear-gradient(135deg, #7a60f3 0%, #af8ffb 100%);
+  --teal-color: linear-gradient(135deg, #00aa80 0%, #8dfce0 100%);
+  --orange-color: linear-gradient(135deg, #f03e1a 0%, #fba88a 100%);
+}
+
+.dark-background {
+  --background-color: var(--dark-navy);  /* deeper navy background for footer/hero overlays */
+  --default-color: #F7F8F9;              /* light text on dark backgrounds */
+  --heading-color: #ffffff;              /* coral accent headings on dark */
+  --surface-color: #0F1A20;
+  --contrast-color: #FFFFFF;
+}
+
+
+/* ===============================
+   Hero stats / destinations inside hero section
+   =============================== */
+.hero-stats .stat-card {
+  background: rgba(20,33,43,0.28); /* semi-transparent to show video behind */
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(6,10,12,0.32);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-stats .stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(6,10,12,0.36);
+}
+
+.hero-stats i {
+  color: var(--accent-color);
+}
+
+.hero-stats h5 {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.hero-stats p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+  color: var(--contrast-color);
+}
+
+
+
+
+
+
+
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization
+
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/* PHP Email Form Messages
+------------------------------*/
+.php-email-form .error-message {
+  display: none;
+  background: #df1529;
+  color: #ffffff;
+  text-align: left;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .sent-message {
+  display: none;
+  color: #ffffff;
+  background: #059652;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .loading {
+  display: none;
+  background: var(--surface-color);
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+}
+
+.php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid var(--accent-color);
+  border-top-color: var(--surface-color);
+  animation: php-email-form-loading 1s linear infinite;
+}
+
+@keyframes php-email-form-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+.header {
+  --background-color: rgba(0, 0, 0, 0);
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: rgba(0, 0, 0, 0.26);
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 20px 0;
+  transition: all 0.5s;
+  z-index: 997;
+}
+
+.header .header-container {
+  background: var(--surface-color);
+  border-radius: 50px;
+  padding: 5px 25px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+  line-height: 1;
+}
+
+.header .logo img {
+  max-height: 36px;
+  margin-right: 8px;
+}
+
+.header .logo h1 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 600;
+  padding-left: 5px;
+  text-transform: uppercase;
+  color: var(--heading-color);
+}
+
+.header .btn-getstarted,
+.header .btn-getstarted:focus {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  font-size: 14px;
+  padding: 8px 20px;
+  margin: 0 0 0 30px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.header .btn-getstarted:hover,
+.header .btn-getstarted:focus:hover {
+  color: var(--contrast-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+@media (max-width: 1200px) {
+  .header {
+    padding-top: 10px;
+  }
+
+  .header .header-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px 5px 10px 15px;
+  }
+
+  .header .logo {
+    order: 1;
+  }
+
+  .header .btn-getstarted {
+    order: 2;
+    margin: 0 10px 0 0;
+    padding: 6px 15px;
+  }
+
+  .header .navmenu {
+    order: 3;
+  }
+}
+
+/* Global Header on Scroll
+------------------------------*/
+.scrolled .header {
+  --surface-color: rgba(0, 0, 0, 0.7);
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Navmenu - Desktop */
+@media (min-width: 1200px) {
+  .navmenu {
+    padding: 0;
+  }
+
+  .navmenu ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .navmenu li {
+    position: relative;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-color);
+    padding: 18px 15px;
+    font-size: 16px;
+    font-family: var(--nav-font);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    transition: 0.3s;
+  }
+
+  .navmenu li:last-child a {
+    padding-right: 0;
+  }
+
+  .navmenu li:hover>a,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-hover-color);
+  }
+
+  .navmenu .dropdown ul {
+    margin: 0;
+    padding: 10px 0;
+    background: var(--nav-dropdown-background-color);
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    left: 14px;
+    top: 130%;
+    opacity: 0;
+    transition: 0.3s;
+    border-radius: 4px;
+    z-index: 99;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .navmenu .dropdown ul li {
+    min-width: 200px;
+  }
+
+  .navmenu .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: none;
+    color: var(--nav-dropdown-color);
+  }
+
+  .navmenu .dropdown ul a i {
+    font-size: 12px;
+  }
+
+  .navmenu .dropdown ul a:hover,
+  .navmenu .dropdown ul .active:hover,
+  .navmenu .dropdown ul li:hover>a {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu .dropdown:hover>ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
+
+  .navmenu .dropdown .dropdown ul {
+    top: 0;
+    left: -90%;
+    visibility: hidden;
+  }
+
+  .navmenu .dropdown .dropdown:hover>ul {
+    opacity: 1;
+    top: 0;
+    left: -100%;
+    visibility: visible;
+  }
+}
+
+/* Navmenu - Mobile */
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    color: var(--nav-color);
+    font-size: 28px;
+    line-height: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .navmenu {
+    padding: 0;
+    z-index: 9997;
+  }
+
+  .navmenu ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+    inset: 60px 20px 20px 20px;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 6px;
+    background-color: var(--nav-mobile-background-color);
+    overflow-y: auto;
+    transition: 0.3s;
+    z-index: 9998;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-dropdown-color);
+    padding: 10px 20px;
+    font-family: var(--nav-font);
+    font-size: 17px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  }
+
+  .navmenu a i:hover,
+  .navmenu a:focus i:hover {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
+  .navmenu a:hover,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu .active i,
+  .navmenu .active:focus i {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    transform: rotate(180deg);
+  }
+
+  .navmenu .dropdown ul {
+    position: static;
+    display: none;
+    z-index: 99;
+    padding: 10px 0;
+    margin: 10px 20px;
+    background-color: var(--nav-dropdown-background-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    box-shadow: none;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .navmenu .dropdown ul ul {
+    background-color: rgba(33, 37, 41, 0.1);
+  }
+
+  .navmenu .dropdown>.dropdown-active {
+    display: block;
+    background-color: rgba(33, 37, 41, 0.03);
+  }
+
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle {
+    color: #fff;
+    position: absolute;
+    font-size: 32px;
+    top: 15px;
+    right: 15px;
+    margin-right: 0;
+    z-index: 9999;
+  }
+
+  .mobile-nav-active .navmenu {
+    position: fixed;
+    overflow: hidden;
+    inset: 0;
+    background: rgba(33, 37, 41, 0.8);
+    transition: 0.3s;
+  }
+
+  .mobile-nav-active .navmenu>ul {
+    display: block;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Footer
+--------------------------------------------------------------*/
+.footer {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-size: 14px;
+  position: relative;
+}
+
+.footer .footer-newsletter {
+  background-color: color-mix(in srgb, var(--default-color), transparent 97%);
+  padding: 50px 0;
+}
+
+.footer .footer-newsletter h4 {
+  font-size: 24px;
+}
+
+.footer .footer-newsletter .newsletter-form {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding: 6px 8px;
+  position: relative;
+  border-radius: 4px;
+  background-color: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  transition: 0.3s;
+  border-radius: 50px;
+}
+
+.footer .footer-newsletter .newsletter-form:focus-within {
+  border-color: var(--accent-color);
+}
+
+.footer .footer-newsletter .newsletter-form input[type=email] {
+  border: 0;
+  padding: 4px;
+  width: 100%;
+  background-color: var(--surface-color);
+  color: var(--default-color);
+}
+
+.footer .footer-newsletter .newsletter-form input[type=email]:focus-visible {
+  outline: none;
+}
+
+.footer .footer-newsletter .newsletter-form input[type=submit] {
+  border: 0;
+  font-size: 16px;
+  padding: 0 20px;
+  margin: -7px -8px -7px 0;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transition: 0.3s;
+  border-radius: 50px;
+}
+
+.footer .footer-newsletter .newsletter-form input[type=submit]:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.footer .footer-top {
+  padding-top: 50px;
+}
+
+.footer .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
+  font-size: 16px;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.footer .social-links a:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.footer h4 {
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer .footer-links {
+  margin-bottom: 30px;
+}
+
+.footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-links ul i {
+  margin-right: 3px;
+  font-size: 12px;
+  line-height: 0;
+  color: var(--accent-color);
+}
+
+.footer .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.footer .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+.footer .footer-links ul a {
+  display: inline-block;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  line-height: 1;
+}
+
+.footer .footer-links ul a:hover {
+  color: var(--accent-color);
+}
+
+.footer .footer-about a {
+  color: var(--heading-color);
+  font-size: 24px;
+  font-weight: 600;
+  font-family: var(--heading-font);
+}
+
+.footer .footer-contact p {
+  margin-bottom: 5px;
+}
+
+.footer .copyright {
+  padding: 25px 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.footer .copyright p {
+  margin-bottom: 0;
+}
+
+.footer .credits {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background-color: var(--background-color);
+  transition: all 0.6s ease-out;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid var(--accent-color);
+  border-top-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Scroll Top Button
+--------------------------------------------------------------*/
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: -15px;
+  z-index: 99999;
+  background-color: var(--accent-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.scroll-top i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 15px;
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Page Titles & Breadcrumbs
+--------------------------------------------------------------*/
+.page-title {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 160px 0 80px 0;
+  text-align: center;
+  position: relative;
+}
+
+.page-title:before {
+  content: "";
+  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  position: absolute;
+  inset: 0;
+}
+
+.page-title h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.page-title .breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.page-title .breadcrumbs ol li+li {
+  padding-left: 10px;
+}
+
+.page-title .breadcrumbs ol li+li::before {
+  content: "/";
+  display: inline-block;
+  padding-right: 10px;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+}
+
+/*--------------------------------------------------------------
+# Global Sections
+--------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  scroll-margin-top: 90px;
+  overflow: clip;
+}
+
+@media (max-width: 1199px) {
+
+  section,
+  .section {
+    scroll-margin-top: 66px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+  text-align: center;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 8px 20px;
+  margin: 0;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 50px;
+  font-family: var(--default-font);
+}
+
+.section-title div {
+  color: var(--heading-color);
+  margin: 10px 0 0 0;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--heading-font);
+}
+
+.section-title div .description-title {
+  color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Travel Hero Section
+--------------------------------------------------------------*/
+.travel-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 60px 0;
+}
+
+.travel-hero .hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.travel-hero .hero-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.travel-hero .hero-background .hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+
+.travel-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--background-color), transparent 60%) 0%, color-mix(in srgb, var(--background-color), transparent 80%) 50%, color-mix(in srgb, var(--background-color), transparent 90%) 100%);
+  z-index: 1;
+  backdrop-filter: blur(0.5px);
+}
+
+.travel-hero .hero-text .hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.travel-hero .hero-text .hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Improve subtitle readability over video */
+.hero-subtitle {
+  font-weight: 600;                /* makes the text thicker */
+  letter-spacing: 0.25px;          /* slight spacing for clarity */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.45); /* subtle shadow for contrast */
+}
+
+.hero-text-glow {
+  background: rgba(0, 0, 0, 0.25); /* soft dark glow */
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+
+
+.travel-hero .hero-text .hero-buttons .btn {
+  padding: 12px 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.travel-hero .hero-text .hero-buttons .btn.btn-primary {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.travel-hero .hero-text .hero-buttons .btn.btn-primary:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  transform: translateY(-2px);
+  color: var(--contrast-color);
+}
+
+.travel-hero .hero-text .hero-buttons .btn.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--contrast-color);
+  color: var(--contrast-color);
+}
+
+.travel-hero .hero-text .hero-buttons .btn.btn-outline:hover {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+  border-color: var(--accent-color);
+}
+
+.travel-hero .booking-form-wrapper .booking-form {
+  background-color: var(--surface-color);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--default-color), transparent 85%);
+  backdrop-filter: blur(10px);
+}
+
+.travel-hero .booking-form-wrapper .booking-form .form-title {
+  color: var(--heading-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.travel-hero .booking-form-wrapper .booking-form label {
+  color: var(--heading-color);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.travel-hero .booking-form-wrapper .booking-form .form-control,
+.travel-hero .booking-form-wrapper .booking-form .form-select {
+  border: 2px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border-radius: 8px;
+  padding: 12px 15px;
+  font-size: 14px;
+  color: var(--default-color);
+  background-color: var(--surface-color);
+  transition: all 0.3s ease;
+}
+
+.travel-hero .booking-form-wrapper .booking-form .form-control:focus,
+.travel-hero .booking-form-wrapper .booking-form .form-select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--accent-color), transparent 75%);
+  outline: none;
+}
+
+.travel-hero .booking-form-wrapper .booking-form .form-control::placeholder,
+.travel-hero .booking-form-wrapper .booking-form .form-select::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+}
+
+.travel-hero .booking-form-wrapper .booking-form .btn-primary {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+  padding: 12px 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.travel-hero .booking-form-wrapper .booking-form .btn-primary:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 992px) {
+  .travel-hero .hero-text {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+/*  .travel-hero .hero-text .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .travel-hero .hero-text .hero-subtitle {
+    font-size: 1.1rem;
+  } */
+
+  .travel-hero .booking-form {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /*.travel-hero .hero-text .hero-title {
+    font-size: 2rem;
+  }
+
+  .travel-hero .hero-text .hero-subtitle {
+    font-size: 1rem;
+  }*/
+
+  .travel-hero .hero-text .hero-buttons .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .travel-hero .hero-text .hero-buttons .btn:last-child {
+    margin-bottom: 0;
+  }
+
+  .travel-hero .booking-form-wrapper .booking-form {
+    padding: 1.5rem;
+  }
+}
+
+/*--------------------------------------------------------------
+# Why Us Section
+--------------------------------------------------------------*/
+.why-us .content h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.why-us .content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+.why-us .stats-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 576px) {
+  .why-us .stats-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.why-us .stat-item span {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  font-family: var(--heading-font);
+}
+
+.why-us .stat-item .stat-label {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-top: 0.25rem;
+}
+
+.why-us .about-image {
+  position: relative;
+}
+
+.why-us .about-image .experience-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.why-us .about-image .experience-badge .experience-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.why-us .about-image .experience-badge .experience-text {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .why-us .about-image {
+    margin-top: 3rem;
+  }
+
+  .why-us .about-image .experience-badge {
+    bottom: 15px;
+    left: 15px;
+    padding: 1rem;
+  }
+
+  .why-us .about-image .experience-badge .experience-number {
+    font-size: 1.5rem;
+  }
+
+  .why-us .about-image .experience-badge .experience-text {
+    font-size: 0.8rem;
+  }
+}
+
+.why-us .why-choose-section {
+  margin-top: 5rem;
+}
+
+.why-us .why-choose-section h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.why-us .why-choose-section>.row>.col-lg-8>p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+@media (max-width: 768px) {
+  .why-us .why-choose-section {
+    margin-top: 3rem;
+  }
+
+}
+
+.why-us .feature-card {
+  background: #FFFFFF;
+  padding: 2.5rem 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  height: 100%;
+  transition: all 0.3s ease;
+  border: 0.5px solid color-mix(in srgb, var(--dark-navy), transparent 90%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.why-us .feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.why-us .feature-card:hover .feature-icon {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.why-us .feature-icon {
+  width: 80px;
+  height: 80px;
+  background: color-mix(in srgb, var(--accent-color), transparent 85%);
+  color: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+
+.why-us .feature-card h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.why-us .feature-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .why-us .feature-card {
+    padding: 2rem 1rem;
+  }
+
+  .why-us .feature-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .why-us .feature-card h4 {
+    font-size: 1.2rem;
+  }
+}
+
+/*--------------------------------------------------------------
+# Call To Action Section
+--------------------------------------------------------------*/
+
+.call-to-action .benefits-showcase .benefits-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.call-to-action .benefits-showcase .benefits-header h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--heading-color);
+}
+
+.call-to-action .benefits-showcase .benefits-header p {
+  font-size: 1.1rem;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.call-to-action .benefits-showcase .benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.call-to-action .benefits-showcase .benefit-card {
+  background: var(--surface-color);
+  padding: 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid color-mix(in srgb, var(--dark-navy), transparent 95%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.call-to-action .benefits-showcase .benefit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+  border-color: color-mix(in srgb, var(--dark-navy), transparent 80%);
+}
+
+.call-to-action .benefits-showcase .benefit-card .benefit-visual {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.call-to-action .benefits-showcase .benefit-card .benefit-visual .benefit-icon-wrap {
+  width: 100px;
+  height: 100px;
+  background: var(--background-color);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  border: 2px solid color-mix(in srgb, var(--dark-navy), transparent 90%);
+}
+
+.call-to-action .benefits-showcase .benefit-card .benefit-visual .benefit-icon-wrap2 {
+  width: 100px;
+  height: 100px;
+  background: var(--accent-color);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.call-to-action .benefits-showcase .benefit-card .benefit-visual .benefit-icon-wrap3 {
+  width: 100px;
+  height: 100px;
+  background: var(--accent-color);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.call-to-action .benefits-showcase .benefit-card .benefit-visual .benefit-icon-wrap4 {
+  width: 100px;
+  height: 100px;
+  background: var(--accent-color);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+
+.call-to-action .benefits-showcase .benefit-card .benefit-visual .benefit-icon-wrap i {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+}
+
+.call-to-action .benefits-showcase .benefit-card .benefit-visual .benefit-icon-wrap2 i {
+  font-size: 2.5rem;
+  color: var(--dark-navy);
+}
+
+.call-to-action .benefits-showcase .benefit-card .benefit-visual .benefit-icon-wrap3 i {
+  font-size: 2.5rem;
+  color: var(--dark-navy);
+}
+
+.call-to-action .benefits-showcase .benefit-card .benefit-visual .benefit-icon-wrap4 i {
+  font-size: 2.5rem;
+  color: var(--dark-navy);
+}
+
+.call-to-action .benefits-showcase .benefit-card .benefit-visual .benefit-pattern {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  /*background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), transparent 90%) 0%, transparent 70%);*/
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.call-to-action .benefits-showcase .benefit-card .benefit-content h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--default-color);
+}
+
+.call-to-action .benefits-showcase .benefit-card .benefit-content p {
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.call-to-action input[type=email] {
+  color: var(--default-color);
+  background-color: var(--surface-color);
+  font-size: 14px;
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.call-to-action input[type=email]:focus {
+  border-color: var(--accent-color);
+}
+
+.call-to-action input[type=email]::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .call-to-action .benefits-showcase .benefits-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+
+/* ===== Destinations cards ===== */
+
+.destinations .content h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.destinations .content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+
+.destinations .destinations-header-section {
+  margin-top: 3rem;
+}
+
+.destinations .destinations-header-section h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.destinations .destinations-header-section>.row>.col-lg-8>p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+@media (max-width: 768px) {
+  .destinations .destinations-header-section h3 {
+    margin-top: 3rem;
+  }
+
+  .destinations .destinations-header-section p {
+    font-size: 1.8rem;
+  }
+}
+
+.destination-card {
+  background: var(--card-surface);
+  border-radius: 12px;
+  /*box-shadow: var(--card-shadow);*/
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .28s ease, box-shadow .28s ease;
+  border: 1px solid color-mix(in srgb, var(--dark-navy), transparent 90%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.destination-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 40px rgba(11, 20, 28, 0.12);
+}
+
+/* Photo area */
+.photo-wrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.05));
+  
+}
+
+.destination-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: saturate(0.98) contrast(0.98);
+  
+}
+
+.destination-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;               /* removes inline gap */
+  object-fit: cover;            /* cover the container */
+  object-position: center 30%; /* focus on bottom half */
+  
+}
+
+/* overlay gradient and title */
+.photo-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.00) 0%, rgba(0,0,0,0.22) 50%, rgba(0,0,0,0.6) 100%);
+  color: var(--contrast-color);
+  backdrop-filter: blur(0.1px);
+  gap: 0.4rem;
+}
+
+.destination-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .95rem;
+  opacity: .95;
+  color: rgba(255,255,255,0.95);
+  margin-bottom: 0.4rem;
+  position: absolute;
+  top: 5rem; /* Adjust to sit just above .destination-name */
+  left: 1.5rem;
+  font-weight: 500;
+  
+}
+
+.destination-name {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #FFFFFF;
+  position: relative;
+  text-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+
+}
+
+/* Body */
+.destination-body {
+  padding: 1.3rem 1.6rem 1.6rem 1.6rem;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.destination-intro {
+  font-size: 1rem;
+  color: var(--default-color);
+  margin-bottom: 0.8rem;
+  line-height: 1.55;
+}
+
+/* Meta items */
+.destination-meta .meta-item {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .25rem 0;
+  color: var(--muted-color);
+  font-size: .95rem;
+}
+
+.destination-meta .meta-item i {
+  font-size: 1.08rem;
+  color: var(--accent-color);
+  min-width: 1.4rem;
+  text-align: center;
+}
+
+/* tags */
+.destination-tags { margin-top: .5rem; display:flex; flex-wrap:wrap; gap:.45rem; }
+.destination-tags .tag {
+  background: transparent;
+  border: 1px solid rgba(230,111,106,0.15);
+  color: var(--accent-color);
+  padding: .32rem .6rem;
+  border-radius: 9999px;
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+/* Responsive tweaks */
+@media (max-width: 991.98px) {
+  .section-title { font-size: 2.2rem; }
+}
+
+
+
+@media (max-width: 768px) {
+ 
+  .photo-wrap {
+    height: 180px;
+
+  }
+
+  .destination-photo img {
+    height: 180px;
+  }
+  .destination-intro {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .destinations .destinations-header-section h3 {
+    margin-top: 0.5rem;
+  }
+
+  .destinations .destinations-header-section p {
+    font-size: 0.95rem;
+  }
+}
+
+
