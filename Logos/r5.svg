@@ -10,7 +10,7 @@
    xml:space="preserve"
    inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
    sodipodi:docname="r5.svg"
-   inkscape:export-filename="r5.png"
+   inkscape:export-filename="r5round.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     inkscape:zoom="0.22627417"
-     inkscape:cx="899.35144"
-     inkscape:cy="2454.9864"
+     inkscape:zoom="0.16"
+     inkscape:cx="271.875"
+     inkscape:cy="3334.375"
      inkscape:window-width="2880"
      inkscape:window-height="1514"
      inkscape:window-x="-11"
@@ -44,7 +44,9 @@
        width="1000"
        height="1000"
        x="-1.5258789e-05"
-       y="0" /><path
+       y="0"
+       rx="156.10417"
+       ry="156.10417" /><path
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#c95374;stroke-width:60;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        d="M 105.98853,411.49458 310.78354,250.93533"
        id="path2" /><path

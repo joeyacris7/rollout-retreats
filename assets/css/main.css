@@ -540,6 +540,9 @@ h6 {
   background-color: var(--background-color);
   font-size: 14px;
   position: relative;
+  padding-bottom: 25px;
+  scroll-margin-top: 75px;
+
 }
 
 .footer .footer-newsletter {
@@ -687,6 +690,163 @@ h6 {
   margin-top: 6px;
   font-size: 13px;
 }
+
+/* Slightly larger icons with white accent */
+.footer .social-icon {
+  font-size: 20px;
+  color: var(--accent-color);
+}
+
+/* Bold link text inside social links */
+.footer .social-links span {
+  font-weight: 500;
+  color: var(--default-color);
+}
+
+/* Larger but lighter subheadings */
+.footer .footer-subheading {
+  font-size: 16px;
+  font-weight: 450;
+  margin-bottom: 1rem;
+  color: var(--default-color);
+}
+
+/* Accent-style action links (like subscribe button) */
+.footer .footer-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  font-weight: 450;
+  padding: 5px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.footer .footer-action-link i {
+  font-size: 1.4rem;
+  color: var(--contrast-color);
+}
+
+.footer .footer-action-link:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.footer-contact-form {
+  background-color: color-mix(in srgb, var(--default-color), transparent 97%);
+  padding: 50px 0;
+}
+
+.footer-contact-form h4 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.footer-contact-form p {
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  color: var(--default-color);
+}
+
+.footer-contact-form .newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: var(--surface-color);
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.footer-contact-form .newsletter-form input[type="text"],
+.footer-contact-form .newsletter-form textarea {
+  border: none;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: var(--surface-color);
+  color: var(--default-color);
+}
+
+.footer-contact-form .newsletter-form input[type="submit"] {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 50px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.footer-contact-form .newsletter-form input[type="submit"]:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.footer-contact-form .sent-message {
+  margin-top: 1rem;
+  color: var(--accent-color);
+  font-weight: 600;
+  display: none;
+}
+/* Contact form container */
+.footer-contact-form .newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  border-radius: 15px;
+  background-color: var(--surface-color);
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  max-width: 100%;
+}
+
+/* Input and textarea styling */
+.footer-contact-form .newsletter-form input[type="text"],
+.footer-contact-form .newsletter-form textarea {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border-radius: 8px;
+  background-color: var(--surface-color);
+  color: var(--default-color);
+  transition: border-color 0.3s ease;
+}
+
+/* Focus effect */
+.footer-contact-form .newsletter-form input[type="text"]:focus,
+.footer-contact-form .newsletter-form textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+/* Submit button */
+.footer-contact-form .newsletter-form input[type="submit"] {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  font-weight: 600;
+  padding: 14px 24px;
+  border-radius: 50px;
+  border: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.footer-contact-form .newsletter-form input[type="submit"]:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+
+}
+
+
+
+
+
 
 /*--------------------------------------------------------------
 # Preloader
@@ -1277,7 +1437,6 @@ section,
 
 .call-to-action .benefits-showcase .benefits-header {
   text-align: center;
-  margin-bottom: 3rem;
 }
 
 .call-to-action .benefits-showcase .benefits-header h3 {

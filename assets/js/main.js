@@ -178,3 +178,66 @@
   });
 
 })();
+
+
+function scrollToSectionWithOffset(sectionId, offset = 50) {
+    const target = document.getElementById(sectionId);
+    if (!target) return;
+
+    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: top,
+      behavior: 'smooth'
+    });
+  }
+
+  // Optional: attach to anchor links with href="#footer"
+  document.querySelectorAll('a[href="#footer"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      scrollToSectionWithOffset('footer', 50);
+    });
+  });
+
+
+  function validateFooterForm() {
+    const form = document.getElementById('footer-contact-form');
+    const errorBox = document.getElementById('footer-error-message');
+    const inputs = form.querySelectorAll('input[required], textarea[required]');
+    let valid = true;
+
+    inputs.forEach(input => {
+      if (!input.value.trim()) {
+        valid = false;
+        input.classList.add('invalid');
+      } else {
+        input.classList.remove('invalid');
+      }
+    });
+
+    if (!valid) {
+      errorBox.innerHTML = `<i class="bi bi-exclamation-triangle-fill" style="color: var(--accent-color); font-size: 1.2rem;"></i> <span>Please fill in all required fields.</span>`;
+      errorBox.style.display = "block";
+      return false;
+    }
+
+    errorBox.style.display = "none";
+    return true;
+  }
+
+  document.getElementById('footer-contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validateFooterForm()) return;
+
+    fetch(this.action, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        this.reset();
+        document.getElementById('thank-you-footer').style.display = 'block';
+      }
+    });
+  });
