@@ -279,6 +279,7 @@ h6 {
   }
 
   .header .btn-getstarted {
+    font-size: 10px;
     order: 2;
     margin: 0 10px 0 0;
     padding: 6px 15px;
@@ -287,6 +288,11 @@ h6 {
   .header .navmenu {
     order: 3;
   }
+
+  .header .logo h1 {
+  font-size: 18px;
+}
+
 }
 
 /* Global Header on Scroll
@@ -1228,7 +1234,7 @@ section,
 }
 
 @media (max-width: 768px) {
-  /*.travel-hero .hero-text .hero-title {
+  .travel-hero .hero-text .hero-title {
     font-size: 2rem;
   }
 
