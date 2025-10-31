@@ -81,10 +81,10 @@
    Hero stats / destinations inside hero section
    =============================== */
 .hero-stats .stat-card {
-  background: rgba(20,33,43,0.28); /* semi-transparent to show video behind */
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-  border-radius: 12px;
+  background: rgba(20, 33, 43, 0.429); /* semi-transparent to show video behind */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 20px;
   box-shadow: 0 8px 20px rgba(6,10,12,0.32);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -99,7 +99,8 @@
 }
 
 .hero-stats h5 {
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
   margin-bottom: 0.2rem;
 }
 
@@ -279,7 +280,7 @@ h6 {
   }
 
   .header .btn-getstarted {
-    font-size: 10px;
+    font-size: 12px;
     order: 2;
     margin: 0 10px 0 0;
     padding: 6px 15px;
@@ -1220,7 +1221,7 @@ section,
     margin-bottom: 3rem;
   }
 
-/*  .travel-hero .hero-text .hero-title {
+.travel-hero .hero-text .hero-title {
     font-size: 2.5rem;
   }
 
@@ -1235,7 +1236,7 @@ section,
 
 @media (max-width: 768px) {
   .travel-hero .hero-text .hero-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .travel-hero .hero-text .hero-subtitle {
@@ -1369,6 +1370,17 @@ section,
   .why-us .why-choose-section {
     margin-top: 3rem;
   }
+
+  .why-us .why-choose-section h3 {
+  font-size: 1.9rem;
+}
+
+  .why-us .why-choose-section>.row>.col-lg-8>p {
+  font-size: 0.95rem;
+
+}
+
+  
 
 }
 
@@ -1615,6 +1627,17 @@ section,
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+@media (max-width: 768px) {
+  .call-to-action .benefits-showcase .benefits-header h3 {
+  font-size: 1.9rem;
+}
+
+.call-to-action .benefits-showcase .benefits-header p {
+  font-size: 0.95rem;
+}
+}
+
 
 
 
